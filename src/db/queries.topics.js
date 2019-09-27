@@ -4,6 +4,7 @@ module.exports = {
 
 //#1
   getAllTopics(callback){
+    
     return Topic.findAll()
 
 //#2
@@ -11,6 +12,7 @@ module.exports = {
       callback(null, topics);
     })
     .catch((err) => {
+     
       callback(err);
     })
   }
