@@ -12,8 +12,7 @@ module.exports = {
       callback(null, topics);
     })
     .catch((err) => {
-     
-      callback(err);
+     callback(err);
     })
   }
 }
