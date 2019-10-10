@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('advertisements', {
+    return queryInterface.createTable('advertisement', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -21,10 +21,19 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      topicId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "advertisement",
+          key: "id",
+          as: "advertisementId",
+        },
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('advertisements');
+    return queryInterface.dropTable('advertisement');
   }
 };
